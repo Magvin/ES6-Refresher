@@ -18,20 +18,7 @@ return book.title.match(regexp)
  })
 
 }
-function empty(){
-if(searchbar.value != ""){
 
-suggestions.style.display="block"
-
-}else{
-
-suggestions.style.display='none'
-
-}
-
-
-
-}
 function inPut(){
 var match=matchOutput(this.value, books);
 var newbook=match.map(item=>
@@ -40,11 +27,20 @@ var newbook=match.map(item=>
 
 );
 
-empty();
-suggestions.innerHTML= newbook
+if(searchbar.value != ""){
 
+suggestions.style.display="block"
+
+
+suggestions.innerHTML= newbook
+}
+else{
+
+
+suggestions.innerHTML= "";
 
 }
+
 
 
 
