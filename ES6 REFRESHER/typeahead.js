@@ -21,11 +21,14 @@ return book.title.match(regexp)
 
 function inPut(){
 var match=matchOutput(this.value, books);
-var newbook=match.map(item=>
-	`<li>
-<span>${item.author} ${item.title}<span>`
+var newbook=match.map(item=>{
+const regExpBold= new RegExp(this.value,'gi');
+var author= item.author.replace(regExpBold,`<b>${this.value}</b>`);
+var title= item.title.replace(regExpBold, `<b>${this.value}</b>`);
+	return `<li>
+<span>${author} ${title}<span>`
 
-);
+});
 
 if(searchbar.value != ""){
 
